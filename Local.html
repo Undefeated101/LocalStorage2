@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+    <head>
+        <title>Let's Code: Local Storage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <style>
+            body{
+
+                margin: 0;
+                padding: 0;
+                background-color: rgb(188, 211, 170);
+                font-family: 'Open Sans', sans-serif;
+                overflow: hidden;
+
+            }
+
+            section{
+
+                position: relative;
+                width: 90%;
+                margin: auto;
+                text-align: center;
+
+            }
+
+            #footer{
+
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                padding: 3px;
+                font-size: 10px;
+                text-align: right;
+
+            }
+
+            #footer > p{
+
+                display: inline;
+
+            }
+
+            #result{
+
+                position: absolute;
+                top: 20px;
+                text-align: center;
+                width: 100%;
+
+            }
+
+            input{
+
+                position: relative;
+                top: 50px;
+                background-color: rgb(188, 211, 170);
+                outline: none;
+                border: 1px solid rgb(0,0,0,0.5);
+
+            }
+
+            button{
+
+                position: relative;
+                top: 50px;
+                margin-left: 2px;
+                background-color: rgb(3, 61, 11);
+                outline: none;
+                border: none;
+                color: white;
+                padding: 2px 4px;
+
+            }
+
+            #definition{
+
+                position: relative;
+                width: 100%;
+                top: 80px;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <input id="myInput" type="text" placeholder="Enter name here"/><button onclick="changeIt(myInput.value)">Login</button><button onclick="clearMe()">Logout</button>
+            <div id="result"></div>
+            <div id="definition">
+                <p>Using localStorage, web applictions can store data locally on the user's browser. The storage limit is more than that of the traditional web cookies. Using the localStorage object stores data with no expiration date. localStorage can be manually accessed in your browser console under the application subsection and the storage area.</p>
+                <p>Local Storage is specific to the protocol of the page. The keys and the values are always strings.</p>
+            </div>
+        </section>
+        <div id="footer">
+            <p>&copy;<a href="https://www.sololearn.com/Profile/100073">Jay</a> 256/365</p>
+        </div>
+        <script>
+
+            function changeIt(value){
+
+                if(typeof(Storage) !== "undefined"){
+
+                    localStorage.setItem("yourName",""+value);
+
+                    document.getElementById("result").innerHTML = "Welcome back, "+localStorage.getItem("yourName");
+
+                } else {
+
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage";
+
+                }
+
+            }
+
+            function clearMe(){
+
+                localStorage.clear();
+
+            }
+        </script>
+    </body>
+</html>
